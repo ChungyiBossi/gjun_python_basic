@@ -40,7 +40,7 @@ class Chicken(Poultry):
         print(f"{self.specy} eat bugs ")
 
     def moring_call(self, time):
-        print(f"{self.sound *3}, It's {time} a.m. now")
+        print(f"{self.sound *3}, It's {time} a.m. now.......")
 
 if __name__ == '__main__':
     duck_1 = Duck('yellow', "ba")
