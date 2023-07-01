@@ -42,6 +42,13 @@ class Chicken(Poultry):
     def moring_call(self, time):
         print(f"{self.sound *3}, It's {time} a.m. now.......")
 
+class Goose(Poultry):
+    def __init__(self, color, sound):
+        super().__init__(color, sound, "Goose")
+
+    def eat(self):
+        print(f"{self.specy} eat vegetable and popcorn.")
+
 if __name__ == '__main__':
     duck_1 = Duck('yellow', "ba")
     duck_2 = Duck('black', "ga")
