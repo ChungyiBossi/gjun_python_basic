@@ -48,5 +48,3 @@ if (is_raining and (is_hot or is_emotional)) or is_holiday or is_typhoon:
     is_going_to_school = False
 
 print(is_going_to_school)
-
-

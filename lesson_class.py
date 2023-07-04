@@ -1,5 +1,6 @@
 import abc
 
+
 class Poultry(abc.ABC):
     def __init__(self, color, sound, specy):
         self.color = color
@@ -19,6 +20,7 @@ class Poultry(abc.ABC):
     def hatch(self):
         print(f"{self.specy}  hatch zzz.")
 
+
 class Duck(Poultry):
     def __init__(self, color, sound):
         super().__init__(color, sound, 'Duck')
@@ -32,6 +34,7 @@ class Duck(Poultry):
     def move(self):
         print(f"{self.specy} don't want to move......")
 
+
 class Chicken(Poultry):
     def __init__(self, color, sound):
         super().__init__(color, sound, "Chicken")
@@ -42,12 +45,14 @@ class Chicken(Poultry):
     def moring_call(self, time):
         print(f"{self.sound *3}, It's {time} a.m. now.......")
 
+
 class Goose(Poultry):
     def __init__(self, color, sound):
         super().__init__(color, sound, "Goose")
 
     def eat(self):
         print(f"{self.specy} eat vegetable and popcorn.")
+
 
 if __name__ == '__main__':
     duck_1 = Duck('yellow', "ba")
@@ -57,4 +62,3 @@ if __name__ == '__main__':
 
     chicken_1 = Chicken("Brown", "gu")
     chicken_1.move()
-

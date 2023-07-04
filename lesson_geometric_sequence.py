@@ -18,5 +18,5 @@ print(sum(list_ar), time.time_ns() - start_time)
 
 # 2
 start_time = time.time_ns()
-sum_ar = a0 * (1 - pow(r, 9)) / (1 - r) 
+sum_ar = a0 * (1 - pow(r, 9)) / (1 - r)
 print(int(sum_ar), time.time_ns() - start_time)

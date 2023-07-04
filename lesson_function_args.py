@@ -3,8 +3,8 @@ def _save_database(info_dictionary):
     print("Save to DB complete!")
     pprint.pprint(info_dictionary)
 
-# 會員系統的流程
 def handle_membership_creation(name, id, phone, *hobbies, **other_infomation):
+    # 會員系統的流程
     gender = other_infomation['gender'] if 'gender' in other_infomation else "Unknown"
     age = other_infomation['age'] if 'age' in other_infomation else "Unknown"
     member_infomation = {
