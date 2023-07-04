@@ -1,15 +1,15 @@
-import numpy as np 
+import numpy as np
 n = 6
 bubbles = np.random.choice(10, n, replace=False)
 print(list(bubbles))
 
 # n = 6
 # round 0:
-#   idx: 1~5, 
+#   idx: 1~5,
 # round 1:
-#   idx: 1~4, 
+#   idx: 1~4,
 # round 2:
-#   idx: 1~3, 
+#   idx: 1~3,
 # round 3:
 #   idx: 1~2,
 # round 4:
