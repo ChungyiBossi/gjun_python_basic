@@ -6,20 +6,12 @@ class MemberInQueue:
         self.name = name
         self.weight = random.randint(1, 100)
 
-    def update_weight(self):
-        # self.weight = self.weight * 1.1
-        pass
-
 
 class PriorityQueue:
     def __init__(self):
         self.pqueue = list()
 
     def enqueue(self, name):
-        # 更新權重
-        for exist_memeber in self.pqueue:
-            exist_memeber.update_weight()
-
         member = MemberInQueue(name)
         self.pqueue.append(member)
         self.pqueue.sort(key=lambda x: x.weight, reverse=True)

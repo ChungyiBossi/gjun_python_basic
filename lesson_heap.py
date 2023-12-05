@@ -2,33 +2,19 @@ import heapq
 import random
 
 
-class MinHeap:
-    def __init__(self):
-        self.minheap = list()
-        heapq.heapify(self.minheap)
-
-    def insert(self, data):  # O(logN)
-        heapq.heappush(self.minheap, data)
-
-    def pop_min(self):  # O(logN)
-        max_one = heapq.heappop(self.minheap)
-        return max_one
-
-    def peek_min(self):
-        return self.minheap[0] if self.minheap else None
-
-
 class MaxHeap:
     def __init__(self):
         self.maxheap = list()
 
-    def insert(self, data):  # O(logN)
+    def insert(self, data):
         heapq.heappush(self.maxheap, data)
-        heapq._heapify_max(self.maxheap)  # O(n)
+        # heapq.heapify(self.maxheap)  # 小到大
+        heapq._heapify_max(self.maxheap)
 
-    def pop_max(self):  # O(logN)
+    def pop_max(self):
         max_one = heapq.heappop(self.maxheap)
-        heapq._heapify_max(self.maxheap)  # O(n)
+        # heapq.heapify(self.maxheap)
+        heapq._heapify_max(self.maxheap)
         return max_one
 
     def peek_max(self):
@@ -36,7 +22,7 @@ class MaxHeap:
 
 
 if __name__ == "__main__":
-    insert_order = random.sample(range(1, 20), 10)
+    insert_order = random.sample(range(1, 1000), 100)
     print("Insert Order:", insert_order)
 
     max_heap = MaxHeap()
