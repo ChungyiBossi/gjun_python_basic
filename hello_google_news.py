@@ -11,13 +11,6 @@ def hello_world():
 @app.route("/google_news/<category_name>")
 def crawl_google_news(category_name):
     news = get_google_news(category_name)
-    # html_result = ""
-    # for block_id in news:
-    #     html_result += f"<h1>{block_id}</h1>"
-    #     for block_news in news[block_id]:
-    #         # print(block_news[0])
-    #         html_result += f'<a href="{block_news[1]}">{block_news[0]}</a><br/>'
-    # return html_result
     return render_template("google_news.html", google_news=news.items())
 
 
