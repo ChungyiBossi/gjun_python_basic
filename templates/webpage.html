@@ -13,44 +13,13 @@
     </header>
 
     <section class="portfolio">
+        {% for article in articles %}
         <article>
-            <img src="static/people.jpg" alt="Project 1">
-            <h2>Project 1</h2>
-            <p>Description of project 1 goes here.</p>
+            <img src="{{ article['image_path'] }}">
+            <h2>{{ article['project_name'] }}</h2>
+            <p>{{ article['project_description'] }}</p>
         </article>
-
-        <article>
-            <img src="static/people.jpg" alt="Project 2">
-            <h2>Project 2</h2>
-            <p>Description of project 2 goes here.</p>
-        </article>
-
-        <article>
-            <img src="static/people.jpg" alt="Project 1">
-            <h2>Project 1</h2>
-            <p>Description of project 1 goes here.</p>
-        </article>
-
-        <article>
-            <img src="static/MC.jpg" alt="Project 1">
-            <h2>Project 1</h2>
-            <p>Description of project 1 goes here.</p>
-        </article>
-
-        <article>
-            <img src="static/people.jpg" alt="Project 1">
-            <h2>Project 1</h2>
-            <p>Description of project 1 goes here.</p>
-        </article>
-
-        <article>
-            <img src="static/MC.jpg" alt="Project 1">
-            <h2>Project 1</h2>
-            <p>Description of project 1 goes here.</p>
-        </article>
-
-        <!-- Add more articles for additional projects -->
-
+        {% endfor %}
     </section>
 
     <footer>

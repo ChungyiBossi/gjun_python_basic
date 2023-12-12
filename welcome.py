@@ -9,4 +9,11 @@ def hello_world():
 
 @app.route("/works")
 def hello_works():
-    return render_template('webpage.html')
+    articles = list()
+    for i in range(10):
+        articles.append({
+            'image_path': "static/MC.jpg",
+            "project_name": f"Project {i}",
+            'project_description': f"This is project {i}"
+        })
+    return render_template('webpage.html', articles=articles)
