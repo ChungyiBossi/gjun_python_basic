@@ -48,12 +48,12 @@ def get_google_news(category_name):
     for block_index, block in enumerate(news_blocks):
         titles = list()
         # 6.1. 找標題
-        for title_element in block.find_all('h4', {'class': 'gPFEn'}):
+        for title_element in block.find_all('a', {'class': 'gPFEn'}):
             titles.append(title_element.string)
 
         # 6.2. 找連結
         links = list()
-        for link_element in block.find_all('a', {'class': 'WwrzSb'}):
+        for link_element in block.find_all('a', {'class': 'gPFEn'}):
             links.append('https://news.google.com' +
                          link_element.get("href")[1:])
 
@@ -76,5 +76,5 @@ def get_google_news(category_name):
 
 if __name__ == '__main__':
 
-    news = get_google_news(category_name="國際")
-    pprint.pprint(news[0])
+    news = get_google_news(category_name="娛樂")
+    pprint.pprint(news)

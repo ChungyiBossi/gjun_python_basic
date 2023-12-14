@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Your Portfolio</title>
-    <link rel="stylesheet" href="static/styles.css">
+    <link rel="stylesheet" href="../static/styles.css">
 </head>
 <body>
 
@@ -13,11 +13,12 @@
     </header>
 
     <section class="portfolio">
-        {% for article in articles %}
+        {% for block_id, news in articles %}
         <article>
-            <img src="{{ article['image_path'] }}">
-            <h2>{{ article['project_name'] }}</h2>
-            <p>{{ article['project_description'] }}</p>
+            <h1>{{block_id}}</h1>
+            {% for block_news in news %}
+                <a href="{{block_news[1]}}">{{block_news[0]}}</a><br />
+            {% endfor %}
         </article>
         {% endfor %}
     </section>
