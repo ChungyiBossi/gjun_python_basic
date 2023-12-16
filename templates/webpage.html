@@ -12,16 +12,16 @@
         <h1>Your Portfolio</h1>
     </header>
 
-    <section class="portfolio">
-        {% for block_id, news in articles %}
-        <article>
-            <h1>{{block_id}}</h1>
+    {% for block_id, news in articles %}
+    <section class="news-group">
+        <!-- <h1>{{block_id}}</h1> -->
             {% for block_news in news %}
-                <a href="{{block_news[1]}}">{{block_news[0]}}</a><br />
+            <article>
+                <h1><a href="{{block_news[1]}}">{{block_news[0]}}</a></h1>
+            </article>
             {% endfor %}
-        </article>
-        {% endfor %}
     </section>
+    {% endfor %}
 
     <footer>
         <p>&copy; 2023 Your Name</p>

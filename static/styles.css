@@ -1,42 +1,63 @@
+/* 共用樣式 */
 body {
     font-family: 'Arial', sans-serif;
-    margin: 0;
-    padding: 0;
+    margin: 20px;
 }
 
-header {
-    background-color: #333;
-    color: #fff;
-    text-align: center;
-    padding: 1em;
+h1, h2, h3 {
+color: #333;
 }
 
-.portfolio {
-    display: flex;
-    flex-wrap: wrap; /* 讓作品換行 */
-    justify-content: space-around;
-    padding: 2em;
+p {
+color: #666;
 }
 
+/* 首頁樣式 */
+ul {
+list-style-type: none;
+padding: 0;
+}
+
+li {
+margin-bottom: 20px;
+border-bottom: 1px solid #ddd;
+padding-bottom: 10px;
+}
+  
+/* Section 樣式 */
+.news-group {
+margin-bottom: 40px;
+border: 2px solid #007BFF;
+border-radius: 8px;
+padding: 10px;
+}
+
+.news-group h2 {
+color: #007BFF;
+border-bottom: 2px solid #007BFF;
+padding-bottom: 5px;
+}
+
+/* 單篇新聞頁面樣式 */
 article {
-    flex-basis: 45%; /* 設置每個作品的基本寬度 */
-    margin: 1em;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    border: 1px solid #ddd;
-    padding: 1em;
+max-width: 600px;
+margin: 0 auto;
+border: 2px solid #333;
+border-radius: 8px;
+padding: 20px;
+margin-bottom: 40px;
 }
 
-img {
-    width: 100%;
-    height: auto;
+/* 單篇新聞標題樣式 */
+article h1 {
+color: #333;
+margin-bottom: 10px;
 }
 
-footer {
-    background-color: #333;
-    color: #fff;
-    text-align: center;
-    padding: 1em;
-    position: fixed;
-    bottom: 0;
-    width: 100%;
+/* 單篇新聞內容樣式 */
+article p {
+line-height: 1.5;
+color: #666;
 }
+
+/* 可以根據需要添加其他樣式 */

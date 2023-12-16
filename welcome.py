@@ -10,14 +10,6 @@ def hello_world():
 
 @app.route("/news/<category>")
 def hello_news(category):
-    # articles = list()
-    # for i in range(10):
-    #     articles.append({
-    #         'image_path': "static/MC.jpg",
-    #         "project_name": f"Project {i}",
-    #         'project_description': f"This is project {i}"
-    #     })
-
     news = get_google_news(category)
     print(len(news))
     return render_template('webpage.html', articles=news.items())
