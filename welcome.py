@@ -1,6 +1,6 @@
 from flask import Flask
 from flask import render_template
-from web_crawler import get_google_news
+from web_crawler.web_crawler import get_google_news
 
 app = Flask(__name__)
 
