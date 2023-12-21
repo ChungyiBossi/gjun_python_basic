@@ -2,4 +2,7 @@
 *.png
 *.pdf
 *.code-workspace
+__pycache__
 gjun_python_basic_env/
+chrome_profile
+ngrok.exe
