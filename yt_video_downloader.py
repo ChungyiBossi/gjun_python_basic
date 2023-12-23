@@ -43,4 +43,4 @@ def search_and_download_yt_video(driver, keyword):
 
 if __name__ == '__main__':
     driver = webdriver.Chrome()
-    search_and_download_yt_video(driver, 'Yoasobi')
+    search_and_download_yt_video(driver, '林俊傑')
