@@ -1,21 +1,15 @@
 from openai import OpenAI
+from secret_tokens import OPENAI_SECRET_KEY
 
 
 def chat_with_openai(prompt):
     client = OpenAI(
-        api_key='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'
+        api_key=OPENAI_SECRET_KEY
+        
     )
 
     chat_completion = client.chat.completions.create(
         messages=[
-            {
-                "role": "user",
-                "content": "你好，聖誕老公公，等一下你回話可不可以短於50字，因為很貴。",
-            },
-            {
-                "role": "system", # ChatGPT 的回覆
-                "content": "我是聖誕老公公，Merry Christmas!",
-            },
             {
                 "role": "user",
                 "content": prompt,
@@ -23,8 +17,9 @@ def chat_with_openai(prompt):
         ],
         model="gpt-3.5-turbo",
     )
-
-    print(chat_completion.choices[0].message.content)
+    response = chat_completion.choices[0].message.content
+    print(response)
+    return response
 
 
 if __name__ == '__main__':

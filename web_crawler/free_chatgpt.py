@@ -23,19 +23,7 @@ def continuous_chat_wtih_chatgpt(driver):
         input_text = input("What you want to say?")
         if input_text == 'quit':
             break
-        textarea_element = driver.find_element(By.ID, 'prompt-textarea')
-        textarea_element.send_keys(input_text)
-        textarea_element.send_keys(Keys.RETURN)
-        time.sleep(10)
-        last_response = driver.find_elements(
-            By.XPATH,
-            '//div[@class="markdown prose w-full break-words dark:prose-invert light"]'
-        )[-1]
-        response_text_elements = last_response.find_elements(By.TAG_NAME, 'p')
-        content = list()
-        for p in response_text_elements:
-            content.append(p.text)
-        content = "".join(content)
+        content = chat_with_chatgpt(driver, input_text)
         conversation.append({
             'user': input_text,
             'system': content
@@ -43,6 +31,21 @@ def continuous_chat_wtih_chatgpt(driver):
 
     return driver, conversation
 
+def chat_with_chatgpt(dirver, input_text):
+    textarea_element = driver.find_element(By.ID, 'prompt-textarea')
+    textarea_element.send_keys(input_text)
+    textarea_element.send_keys(Keys.RETURN)
+    time.sleep(10)
+    last_response = driver.find_elements(
+        By.XPATH,
+        '//div[@class="markdown prose w-full break-words dark:prose-invert light"]'
+    )[-1]
+    response_text_elements = last_response.find_elements(By.TAG_NAME, 'p')
+    content = list()
+    for p in response_text_elements:
+        content.append(p.text)
+    content = "".join(content)
+    return content
 
 if __name__ == '__main__':
     driver = google_semi_auto_login(os.getenv('Gmail'), os.getenv('Gmail_pwd'))
