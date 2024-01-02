@@ -1,4 +1,4 @@
-from google_login import google_semi_auto_login
+from web_crawler.google_login import google_semi_auto_login
 from selenium.webdriver.common.by import By
 from selenium.webdriver.common.keys import Keys
 
