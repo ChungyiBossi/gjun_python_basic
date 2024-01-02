@@ -55,7 +55,7 @@ if __name__ == '__main__':
     second_image = cv2.imread(IMAGE_FILENAMES[1])
 
     # 偵測臉部, 回傳bounding box & 臉部擷取的存檔 filename
-    face_cascade = cv2.CascadeClassifier(".\python_scripts\haarcascade_frontalface_default.xml")   # 載入人臉模型
+    face_cascade = cv2.CascadeClassifier(".\face_models\haarcascade_frontalface_default.xml")   # 載入人臉模型
     bboxes_1, facefilename_1 = opencv_detect_faces(first_image, face_cascade, './face_image')
     bboxes_2, facefilename_2 = opencv_detect_faces(second_image, face_cascade, './face_image')
     
