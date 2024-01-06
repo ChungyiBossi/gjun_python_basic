@@ -35,9 +35,7 @@ from mediapipe_image_embedding import (
 
 from secret_tokens import (
     LINEBOT_ACCESS_TOKEN,
-    LINEBOT_CHANNEL_SECRET,
-    IMGUR_CLIENT_ID,
-    IMGUR_CLIENT_SECRET
+    LINEBOT_CHANNEL_SECRET
 )
 
 from imgur_upload import upload_to_imgur
@@ -103,7 +101,7 @@ def handle_image(event):
     face_cascade = cv2.CascadeClassifier(".\ml_models\haarcascade_frontalface_default.xml")   # 載入人臉模型
     img_array = np.frombuffer(image_binary, dtype=np.uint8)
     image = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-    bboxes, face_filenames = opencv_detect_faces(image, face_cascade, './face_image')
+    bboxes, _ = opencv_detect_faces(image, face_cascade, './face_image')
 
     response_message = [TextMessage(text=f'I got a image. their are {len(bboxes)} people')]
 

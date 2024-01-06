@@ -2,11 +2,28 @@ import speech_recognition as sr
 from pydub import AudioSegment     # 載入 pydub 的 AudioSegment 模組
 
 
-def semgment_audio(mp3_path, output_folder_path='.', duration_ms=3*1000, target_format='wav'):
-    song = AudioSegment.from_file(mp3_path)    # 讀取 mp3 檔案
+def semgment_audio_with_begin_and_end_label(
+        audio_path, speech_labels, 
+        output_folder_path='.', target_format='wav'
+    ):
+    song = AudioSegment.from_file(audio_path)
+    audio_path = "".join(audio_path.split('.')[:-1])
+    for index, label in enumerate(speech_labels):
+        begin, end = label['speech_begin']*1000, label['speech_end']*1000
+        song[begin: end].export(
+            f"{output_folder_path}/{audio_path}_{index}.{target_format}",
+            format=target_format
+        ) 
+
+def semgment_audio_with_duration(
+        audio_path,
+        output_folder_path='.', duration_ms=3*1000, target_format='wav'
+    ):
+    song = AudioSegment.from_file(audio_path)    # 讀取 audio 檔案
+    audio_path = "".join(audio_path.split('.')[:-1])
     for index in range(0, len(song), duration_ms): # 每3秒一個cut
         song[index: index + duration_ms].export(
-            f"{output_folder_path}/{mp3_path}_{index}.{target_format}",
+            f"{output_folder_path}/{audio_path}_{index}.{target_format}",
             format=target_format
         ) 
 
