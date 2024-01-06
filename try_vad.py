@@ -10,17 +10,25 @@ def save_to_file(data, filename):
 
 def merge_speech_labels(speech_labels, silence_threshold = 0.5, slice_max_length = 5):
     fix_labels = list()
-    slice_begin, slice_end = speech_labels[0]['speech_begin'], speech_labels[0]['speech_end']
-    for label in speech_labels[1:]:
-        begin, end = label['speech_begin'], label['speech_end']
 
-        if (begin - slice_end) > silence_threshold or (slice_end - slice_begin) > slice_max_length: 
-            # 超過可以容許的無人聲範圍 或是 slice太長，都要先存起來
-            fix_labels.append({"speech_begin": slice_begin, "speech_end": slice_end})
-            slice_begin, slice_end = begin, end
-        else:
-            # 繼續延長
-            slice_end = end
+    if len(speech_labels) > 1: # more than one slice
+        slice_begin, slice_end = speech_labels[0]['speech_begin'], speech_labels[0]['speech_end']
+        for label in speech_labels[1:]:
+            begin, end = label['speech_begin'], label['speech_end']
+
+            if (begin - slice_end) > silence_threshold or (slice_end - slice_begin) > slice_max_length: 
+                # 超過可以容許的無人聲範圍 或是 slice太長，都要先存起來
+                fix_labels.append({"speech_begin": slice_begin, "speech_end": slice_end})
+                slice_begin, slice_end = begin, end
+            else:
+                # 繼續延長
+                slice_end = end
+    elif len(speech_labels) == 1: # only one slice
+        slice_begin, slice_end = speech_labels[0]['speech_begin'], speech_labels[0]['speech_end']
+        fix_labels.append({"speech_begin": slice_begin, "speech_end": slice_end})
+    else:
+        print("No Human Voice Detected.")
+    
     print('labels before: ', len(speech_labels), ' --> label after: ', len(fix_labels))
     return fix_labels
 
@@ -183,7 +191,8 @@ if __name__ == '__main__':
     # filename = 'english.wav'
     # filename = 'leak-test.wav'
     # filename = 'River_South.wav'
-    filename = 'azure_30s.wav'
+    # filename = 'azure_30s.wav'
+    filename = 'wav-sample.wav'
 
     v = VoiceActivityDetector(filename)
     # v.plot_detected_speech_regions()
