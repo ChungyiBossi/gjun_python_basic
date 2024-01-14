@@ -3,7 +3,7 @@ import json
 import sys
 import requests
 import cv2
-from flask import Flask, request, abort
+from flask import Flask, request, abort, render_template
 from linebot.v3 import (
      WebhookHandler
 )
@@ -56,7 +56,14 @@ handler = WebhookHandler(channel_secret)
 configuration = Configuration(
     access_token=channel_access_token
 )
+@app.route("/show_image",methods=['POST','GET'])
+def show_image():
+    # Handle audio process here
+    return render_template('show_image.html') # render image with jinja parameters
 
+@app.route("/xxx",methods=['POST','GET'])
+def frontend_trigger():
+    return render_template('frontend_trigger.html')
 
 @app.route("/", methods=['POST'])
 def callback():

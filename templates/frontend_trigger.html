@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+</head>
+<body>
+    <header><h1>test</h1></header>
+    <script>
+        function testclick(name)
+        {
+            window.open("{{ url_for('show_image') }}","_self");
+        }
+    </script>
+    <button onclick="testclick('YOYOYOYO')">點選我啊</button>
+    <!-- <button>點選我啊</button> -->
+</body>
+</html>
